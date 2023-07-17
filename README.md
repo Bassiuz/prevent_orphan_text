@@ -3,6 +3,10 @@ A Flutter package for [Dutch Coding Company](https://dutchcodingcompany.com) pro
 
 - Wraps every function of a Text widget and prevents text orphans in the end of a text widget.
 
+## Live Example
+
+You can test the package by visiting the live Flutter Web example [on our playground page](https://orphantext.basdevaan.nl/)
+
 ## Getting started
 
 `flutter pub add prevent_orphan_text` to install the package in your project. Thats all!
