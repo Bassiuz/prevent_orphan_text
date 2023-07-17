@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   double _containerWidth = 220;
 
-  String text = "Enter text above to start adding items";
+  String text = "Enter text above to start adding supercalifragilasticlylarge items";
 
   void setWidth(double value) {
     setState(() {

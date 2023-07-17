@@ -70,7 +70,7 @@ class PreventOrphanText extends StatelessWidget {
 
     final words = data.split(' ');
 
-    List<List<String>> lines = [[]];
+    List<List<String>> lines = [];
 
     List<String> currentLine = [];
 
@@ -80,6 +80,7 @@ class PreventOrphanText extends StatelessWidget {
 
       if (getWidth(currentLineText, style) > maxWidth) {
         lines.add(currentLine);
+
         currentLine = [word];
       } else {
         currentLine.add(word);
@@ -103,8 +104,11 @@ class PreventOrphanText extends StatelessWidget {
       lines[lines.length - 1] = newLastLine;
     }
 
-    // join lines back together
-    final linesText = lines.map((line) => line.join(' ')).join('\n');
+    // remove empty lines as a result of reordering
+    lines = lines.where((element) => element.isNotEmpty).toList();
+
+    // join lines to text
+    final linesText = lines.where((element) => element.isNotEmpty).map((line) => line.join(' ')).join('\n');
 
     return linesText;
   }
@@ -134,43 +138,6 @@ class PreventOrphanText extends StatelessWidget {
           selectionColor: selectionColor,
         );
       },
-    );
-  }
-}
-
-extension PreventOrphanTextExtension on Text {
-  static Widget preventOrphans(
-    String data, {
-    Key? key,
-    TextStyle? style,
-    TextAlign? textAlign,
-    bool? softWrap,
-    TextOverflow? overflow,
-    int? maxLines,
-    StrutStyle? strutStyle,
-    TextDirection? textDirection,
-    Locale? locale,
-    double? textScaleFactor,
-    String? semanticsLabel,
-    TextWidthBasis? textWidthBasis,
-    TextHeightBehavior? textHeightBehavior,
-    Color? selectionColor,
-  }) {
-    return PreventOrphanText(
-      data,
-      style: style,
-      textAlign: textAlign,
-      softWrap: softWrap,
-      overflow: overflow,
-      maxLines: maxLines,
-      strutStyle: strutStyle,
-      textDirection: textDirection,
-      locale: locale,
-      textScaleFactor: textScaleFactor,
-      semanticsLabel: semanticsLabel,
-      textWidthBasis: textWidthBasis,
-      textHeightBehavior: textHeightBehavior,
-      selectionColor: selectionColor,
     );
   }
 }
