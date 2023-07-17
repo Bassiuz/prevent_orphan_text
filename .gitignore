@@ -10,6 +10,9 @@
 .svn/
 migrate_working_dir/
 
+# make an exception for the web folder
+!/build/web/
+
 # IntelliJ related
 *.iml
 *.ipr

@@ -1,4 +1,4 @@
-A Flutter package for [Dutch Coding Company](https://dutchcodingcompany.com) projects. This package create a Text widget that prevents text orphans in the end of a text widget.
+A Flutter package for [Dutch Coding Company](https://dutchcodingcompany.com) projects. This package create a Text widget that prevents text orphans in the end of a text widget. It is inspired by the [balanced_text](https://github.com/rasitayaz/flutter-balanced-text) package.
 ## Features
 
 - Wraps every function of a Text widget and prevents text orphans in the end of a text widget.

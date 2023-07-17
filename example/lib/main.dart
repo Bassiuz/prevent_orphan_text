@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   double _containerWidth = 220;
 
-  String text = "Enter text above to start adding supercalifragilasticlylarge items";
+  String text = "Enter text above to start adding items";
 
   void setWidth(double value) {
     setState(() {
@@ -46,6 +46,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
+            TextField(
+              onChanged: (value) {
+                setState(() {
+                  text = value;
+                });
+              },
+              decoration: const InputDecoration(
+                hintText: 'Enter your own text here',
+              ),
+            ),
+            const SizedBox(height: 20),
             SizedBox(
               width: 500,
               child: Slider(
