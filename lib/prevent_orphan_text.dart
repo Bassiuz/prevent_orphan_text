@@ -68,7 +68,7 @@ class PreventOrphanText extends StatelessWidget {
       return data;
     }
 
-    final words = data.split(' ');
+    final words = data.trim().split(' ');
 
     List<List<String>> lines = [];
 

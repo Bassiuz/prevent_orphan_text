@@ -52,6 +52,31 @@ main() {
   });
 
   testWidgets(
+    'PreventOrphanText trims a trailing space correctly',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 450,
+                child: PreventOrphanText(
+                  'Enter text above to start adding items ',
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      expect(find.text('Enter text above to start\nadding items'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
       'PreventOrphanText removes empty lines in between that are caused by the previous sentence being split into two lines',
       (WidgetTester tester) async {
     await tester.pumpWidget(
